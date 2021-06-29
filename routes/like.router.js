@@ -13,12 +13,13 @@ router.route("/")
 }) 
 .post(async (req, res, next) => {
   try{
-    let likeItem = req.body;
-    let NewLikeItem = new Like(likeItem);
-    let savedLikeItem = await NewLikeItem.save();
-    res.json({success: true, savedLikeItem})
+    const wishlistItem = req.body;
+    const NewWishlistItem = new Wishlist(wishlistItem.video);
+    console.log(NewWishlistItem)
+    const savedWishlistItem = await NewWishlistItem.save();
+    res.json({ success: true, wishlistItem: savedWishlistItem })
   } catch(err) {
-    res.status(500).json({success: false, message: "Unable to save it to Database"})
+    res.status(500).json({success: false, message: 'unable to add products', err })
   }
 })
 

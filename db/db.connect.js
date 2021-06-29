@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const dbConnection = "mongodb+srv://suraj:surajneog@cluster0.tgqgv.mongodb.net/farmTube";
+const dbConnection = process.env['DB_CONNECTOR'];
 
 function initalizeDBConnection() {
   mongoose.connect(dbConnection, {

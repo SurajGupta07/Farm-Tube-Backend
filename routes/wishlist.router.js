@@ -15,7 +15,7 @@ router.route("/")
 .post(async (req, res, next) => {
   try{
     let wishlistItem = req.body;
-    let NewWishlistItem = new Wishlist(wishlistItem)
+    let NewWishlistItem = new Wishlist(wishlistItem.video)
     let savedWishlistItem = await NewWishListItem.save()
     res.json({success: true, wishlistItem: savedWishlistItem})
   }
